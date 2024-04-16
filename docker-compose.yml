@@ -1,0 +1,17 @@
+version: '3.3'
+services:
+  app:
+    build: .
+    volumes:
+      - .:/app
+    tty: true
+    stdin_open: true
+  db:
+    image: mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: app
+      MYSQL_USER: app
+      MYSQL_PASSWORD: app
+    volumes:
+      - ./db_data:/var/lib/mysql
