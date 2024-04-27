@@ -2,10 +2,10 @@ import os
 
 def to_txt_record(media, title, date, author, url, content, keyword=None):
 
-    path = f'../results/{media}'
+    path = f'results/{media}'
     if keyword is not None:
         path += f'/{keyword}'
-    
+    print(path)
     if not os.path.exists(path):
         os.makedirs(path)
     # 以utf-8編碼寫入檔案
