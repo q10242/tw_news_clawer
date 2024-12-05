@@ -23,11 +23,7 @@ class FtvNews:
         self.week_limit = week_limit
 
     def search(self, keyword=None):
-        print('民視新聞 search: ' + keyword)
         self.keyword = keyword
-        print(self.url + keyword +'/'+ str(self.page))
-
-
         session = requests.Session()
         with httpx.Client(headers=self.headers) as client:
             response = client.get(self.url + keyword +'/'+ str(self.page))
@@ -113,7 +109,6 @@ class FtvNews:
                 self.reach_end = True
                 return
         time = time[0].text.strip() + ' ' + time[1].text.strip()
-        print(title, time, author, news_url, content_text)
         to_txt_record('FtvNews', title, time, author, news_url, content_text, self.keyword)
 
         
