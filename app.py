@@ -1,7 +1,7 @@
 from src.main import main
 
 def run():
-    weeks_limit = 40
+    weeks_limit = 3
     keywords = [
         '新北市板橋',
         '新北市三重',
