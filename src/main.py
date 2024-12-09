@@ -14,11 +14,11 @@ def main(keywords = None, weeks_limit = None):
     ttv = Ttv(weeks_limit)
     udn = UDN(weeks_limit)
     for keyword in keywords:
-        # ettoday.search(keyword)
-        # tvbs.search(keyword)
-        # ltn.search(keyword)
-        # ftvnews.search(keyword)
-        # ttv.search(keyword)
+        ettoday.search(keyword)
+        tvbs.search(keyword)
+        ltn.search(keyword)
+        ftvnews.search(keyword)
+        ttv.search(keyword)
         udn.search(keyword)
 
 if __name__ == '__main__':
