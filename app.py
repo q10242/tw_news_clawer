@@ -1,7 +1,6 @@
 from src.main import main
-
-def run():
-    weeks_limit = 3
+import argparse
+def run(weeks_limit= 1):
     keywords = [
         '新北市板橋',
         '新北市三重',
@@ -36,6 +35,15 @@ def run():
     main(keywords, weeks_limit)
 
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description="執行爬蟲程式")
+    parser.add_argument(
+        '--weeks_limit',
+        type=int,
+        default=1,  # 設置默認值為 1
+        help='設定要抓取的週數限制'
+    )
+    args = parser.parse_args()
     
-    run()
+    # 將參數傳遞給 run 函數
+    run(args.weeks_limit)
     print('Done')
