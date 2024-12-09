@@ -36,8 +36,9 @@ class EtToday:
         for new in news:
             try:
                 self.handle_news(new['href'])
-            except:
+            except Exception as e:
                 print('error handling news: ' + new.text)
+                print(e)
             print(new.text)
     def handle_news(self, news_url):
         if news_url is None:
@@ -63,8 +64,6 @@ class EtToday:
             if datetime.now() - time > self.week_limit:
                 self.reach_end = True
                 return
-        # 移除time的空白 
-        time = time.strip()
         contentText = ''
         # 第一個元素是記者
         author = ''
