@@ -8,6 +8,7 @@ def to_txt_record(media, title, date, author, url, content, keyword=None):
     print("save to path: " + path)
     if not os.path.exists(path):
         os.makedirs(path)
+    title = title.replace('/', '_')
     # 以utf-8編碼寫入檔案
     with open(f'{path}/{title}.txt', 'w', encoding='utf-8') as f:
         f.write(f'媒體名稱：{media}\n')
