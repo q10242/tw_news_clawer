@@ -11,7 +11,10 @@ service = build('drive', 'v3', credentials=creds)
 def upload_file(file_path, folder_id):
     file_metadata = {'name': file_path.split('/')[-1], 'parents': [folder_id]}
     media = MediaFileUpload(file_path, resumable=True)
-    service.files().create(body=file_metadata, media_body=media).execute()
+    try:
+        service.files().create(body=file_metadata, media_body=media).execute()
+    except Exception as e:
+        print(e)
 
 # 本地文件夾路徑
 local_folder = '/home/kyjita/codebase/tw_news_clawer/results'
