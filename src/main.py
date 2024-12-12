@@ -1,10 +1,10 @@
-
 from src.media.ettoday import EtToday
 from src.media.tvbs import TVBS
 from src.media.ltn import LTN
 from src.media.ftvnews import FtvNews
 from src.media.ttv import Ttv
 from src.media.udn import UDN
+from datetime import datetime
 
 def main(keywords = None, weeks_limit = None):
     ettoday = EtToday(weeks_limit)
@@ -20,6 +20,7 @@ def main(keywords = None, weeks_limit = None):
         ftvnews.search(keyword)
         ttv.search(keyword)
         udn.search(keyword)
+    print("全部完成 日期:" + datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
 
 if __name__ == '__main__':
     main()
