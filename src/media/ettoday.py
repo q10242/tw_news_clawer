@@ -58,9 +58,10 @@ class EtToday:
             time = time.split(' ')
             time = time[0].replace('年', '-').replace('月', '-').replace('日', ' ') + time[1]
             time = time.strip()
-            time = time.replace(' ', 'T')
+            time = time.replace(' ', '')
             time = time + ':00'
-            time = datetime.fromisoformat(time)
+            corrected_date_str = datetime.strptime(time, "%Y-%m-%d%H:%M:%S").isoformat()
+            time = datetime.fromisoformat(corrected_date_str)
             if datetime.now() - time > self.week_limit:
                 self.reach_end = True
                 return

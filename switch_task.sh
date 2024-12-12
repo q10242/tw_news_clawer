@@ -18,7 +18,7 @@ if [ "$CURRENT_STATE" -eq 0 ]; then
     echo 1 > "$LOG_FILE"
 else
     # 執行第二個指令
-    docker exec tw_news_clawer_app_1 python3 upload.py >> /tmp/upload_logs.log 2>&1
+    docker exec tw_news_clawer_app_1 python3 src/upload/upload_google_drive.py />> /tmp/upload_logs.log 2>&1
     # 切換狀態
     echo 0 > "$LOG_FILE"
 fi
