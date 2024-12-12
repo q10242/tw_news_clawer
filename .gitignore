@@ -1,4 +1,6 @@
 results
+*.log
+*.json
 db_data
 .vscode
 __pycache__
